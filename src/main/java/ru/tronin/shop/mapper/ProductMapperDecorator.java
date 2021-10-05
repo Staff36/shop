@@ -2,7 +2,6 @@ package ru.tronin.shop.mapper;
 
 import ru.tronin.shop.models.Product;
 import ru.tronin.shop.models.dtos.AbstractProductDto;
-import ru.tronin.shop.models.dtos.SmallProductDto;
 
 public class ProductMapperDecorator implements Mapper<Product, AbstractProductDto>{
 
@@ -13,7 +12,12 @@ public class ProductMapperDecorator implements Mapper<Product, AbstractProductDt
     }
 
     @Override
-    public AbstractProductDto map(Product e) {
-        return abstractProductDtoMapper.map(e);
+    public AbstractProductDto mapEntityToDto(Product product) {
+        return abstractProductDtoMapper.mapEntityToDto(product);
+    }
+
+    @Override
+    public Product mapDtoToEntity(AbstractProductDto productDto) {
+        return abstractProductDtoMapper.mapDtoToEntity(productDto);
     }
 }

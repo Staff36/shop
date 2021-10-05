@@ -7,7 +7,19 @@ import ru.tronin.shop.models.dtos.SmallProductDto;
 public class SmallProductDtoMapper implements Mapper<Product, AbstractProductDto>{
 
     @Override
-    public AbstractProductDto map(Product e) {
+    public AbstractProductDto mapEntityToDto(Product e) {
         return new SmallProductDto(e.getId(), e.getName());
     }
+
+    @Override
+    public Product mapDtoToEntity(AbstractProductDto e) {
+        Product product = new Product();
+        product.setId(e.getId());
+        if (e instanceof SmallProductDto){
+            product.setName(((SmallProductDto) e).getName());
+        }
+        return product;
+    }
+
+
 }

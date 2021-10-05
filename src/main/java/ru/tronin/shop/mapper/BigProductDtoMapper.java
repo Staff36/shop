@@ -13,8 +13,17 @@ public class BigProductDtoMapper extends ProductMapperDecorator{
     }
 
     @Override
-    public AbstractProductDto map(Product e) {
-        DefaultProductDto productDto = (DefaultProductDto) super.map(e);
-        return new BigProductDto(productDto.getId(), productDto.getName(), productDto.getPrice(), e.getDescription());
+    public AbstractProductDto mapEntityToDto(Product product) {
+        DefaultProductDto productDto = (DefaultProductDto) super.mapEntityToDto(product);
+        return new BigProductDto(productDto.getId(), productDto.getName(), productDto.getPrice(), product.getDescription());
+    }
+
+    @Override
+    public Product mapDtoToEntity(AbstractProductDto productDto) {
+        Product product = super.mapDtoToEntity(productDto);
+        if (productDto instanceof BigProductDto){
+            product.setDescription(((BigProductDto)productDto).getDescription());
+        }
+        return product;
     }
 }
