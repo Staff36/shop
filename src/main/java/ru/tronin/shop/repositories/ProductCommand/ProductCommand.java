@@ -1,4 +1,4 @@
-package ru.tronin.shop.repositories.ProductTeam;
+package ru.tronin.shop.repositories.ProductCommand;
 
 import org.springframework.stereotype.Component;
 import ru.tronin.shop.models.Product;

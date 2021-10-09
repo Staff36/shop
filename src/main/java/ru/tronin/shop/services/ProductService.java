@@ -2,13 +2,13 @@ package ru.tronin.shop.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import ru.tronin.shop.mapper.BigProductDtoMapper;
-import ru.tronin.shop.mapper.DefaultProductMapper;
-import ru.tronin.shop.mapper.ProductMapperDecorator;
-import ru.tronin.shop.mapper.SmallProductDtoMapper;
+import ru.tronin.shop.mapper.ProductMapper.BigProductDtoMapper;
+import ru.tronin.shop.mapper.ProductMapper.DefaultProductMapper;
+import ru.tronin.shop.mapper.ProductMapper.ProductMapperDecorator;
+import ru.tronin.shop.mapper.ProductMapper.SmallProductDtoMapper;
 import ru.tronin.shop.models.Product;
 import ru.tronin.shop.models.dtos.AbstractProductDto;
-import ru.tronin.shop.repositories.ProductTeam.ProductUpdater;
+import ru.tronin.shop.repositories.ProductCommand.ProductUpdater;
 import ru.tronin.shop.repositories.ProductsRepository;
 
 
